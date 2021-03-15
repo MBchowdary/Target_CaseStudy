@@ -3,27 +3,27 @@ package com.target.targetcasestudy.viewmodels;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.target.targetcasestudy.data.repo.DealsRepo;
 import com.target.targetcasestudy.data.model.DealItem;
+import com.target.targetcasestudy.data.repo.Repo;
 
 import java.util.List;
 
 public class DealsListViewmodel extends ViewModel {
 
-    private DealsRepo mDealsRepo;
+    private Repo mRepo;
 
     public DealsListViewmodel() {
-        mDealsRepo = new DealsRepo();
+        mRepo = Repo.getInstance();
     }
 
     //Return Live data to View
     public LiveData<List<DealItem>> getDeals() {
-        return mDealsRepo.getDeals();
+        return mRepo.getDeals();
     }
 
     @Override
     protected void onCleared() {
         super.onCleared();
-        mDealsRepo.clearDisposable();
+        mRepo.clearDisposable();
     }
 }
