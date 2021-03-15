@@ -30,16 +30,6 @@ class PaymentDialogFragment : DialogFragment() {
 
     private lateinit var submitButton: Button
     private lateinit var creditCardInput: EditText
-    private val listOfPattern: ArrayList<String> = ArrayList()
-
-    init {
-        listOfPattern.add("^4[0-9]{6,}$")
-        listOfPattern.add("^5[1-5][0-9]{5,}$")
-        listOfPattern.add("^3[47][0-9]{5,}$")
-        listOfPattern.add("^3(?:0[0-5]|[68][0-9])[0-9]{4,}$")
-        listOfPattern.add("^6(?:011|5[0-9]{2})[0-9]{3,}$")
-        listOfPattern.add("^(?:2131|1800|35[0-9]{3})[0-9]{3,}$")
-    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -69,8 +59,7 @@ class PaymentDialogFragment : DialogFragment() {
 
             override fun afterTextChanged(s: Editable) {
                 val userInput = s.toString().replace(nonDigits, "")
-                submitButton.isEnabled = validateCreditCard(userInput, listOfPattern)
-
+                submitButton.isEnabled = validateCreditCard(userInput)
             }
         })
 

@@ -13,7 +13,7 @@ public class DealsListViewmodel extends ViewModel {
     private DealsRepo mDealsRepo;
 
     public DealsListViewmodel() {
-        mDealsRepo = DealsRepo.getInstance();
+        mDealsRepo = new DealsRepo();
     }
 
     //Return Live data to View

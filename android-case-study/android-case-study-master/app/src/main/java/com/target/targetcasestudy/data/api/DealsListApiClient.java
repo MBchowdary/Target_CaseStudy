@@ -22,19 +22,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class DealsListApiClient {
     private static final String TAG = "DealsApiClient";
 
-    private static DealsListApiClient instance;
     private DealsApi mDealsApi;
     private MutableLiveData<List<DealItem>> mDealsList;
     private final CompositeDisposable mCompositeDisposable;
 
-    public static DealsListApiClient getInstance() {
-        if (instance == null) {
-            instance = new DealsListApiClient();
-        }
-        return instance;
-    }
 
-    private DealsListApiClient() {
+    public DealsListApiClient() {
         mDealsList = new MutableLiveData<>();
         mCompositeDisposable = new CompositeDisposable();
     }

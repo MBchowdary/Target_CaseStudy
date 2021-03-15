@@ -9,27 +9,19 @@ import java.util.List;
 
 public class DealsRepo {
 
-    private static DealsRepo instance;
     private DealsListApiClient mDealsListApiClient;
 
-    public static DealsRepo getInstance(){
-        if(instance == null){
-            instance = new DealsRepo();
-        }
-        return instance;
-    }
-
-    private DealsRepo(){
-        mDealsListApiClient = DealsListApiClient.getInstance();
+    public DealsRepo() {
+        mDealsListApiClient = new DealsListApiClient();
     }
 
     // Live data to ViewModel
-    public LiveData<List<DealItem>> getDeals(){
+    public LiveData<List<DealItem>> getDeals() {
         return mDealsListApiClient.getDeals();
     }
 
     // Disposable will be cleared when its no longer needed
-    public void clearDisposable(){
+    public void clearDisposable() {
         mDealsListApiClient.clearDisposable();
     }
 }

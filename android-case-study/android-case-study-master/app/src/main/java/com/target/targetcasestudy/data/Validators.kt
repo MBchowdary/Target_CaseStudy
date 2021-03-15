@@ -1,6 +1,7 @@
 package com.target.targetcasestudy.data
 
-import android.util.Log
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 /**
  * For an explanation of how to validate credit card numbers read:
@@ -23,13 +24,33 @@ import android.util.Log
  * @return true if a credit card number is believed to be valid,
  * otherwise false
  */
-fun validateCreditCard(creditCardNumber: String, listOfPattern: ArrayList<String>): Boolean {
+
+
+fun validateCreditCard(creditCardNumber: String): Boolean {
+    if (REGEX.listOfPattern.size == 0) {
+        REGEX.createPatterns()
+    }
     if (creditCardNumber.length in 13..19) {
-        for (card in listOfPattern) {
-            if (creditCardNumber.matches(Regex(creditCardNumber))) {
-                return true
-            }
+        for (card in REGEX.listOfPattern) {
+            // Compile the ReGex
+            val pattern: Pattern = Pattern.compile(card)
+            val m: Matcher = pattern.matcher(creditCardNumber)
+            return m.matches()
         }
     }
     return false
+}
+
+class REGEX {
+    companion object {
+        val listOfPattern: ArrayList<String> = ArrayList()
+        fun createPatterns() {
+            listOfPattern.add("^4[0-9]{6,}$")
+            listOfPattern.add("^5[1-5][0-9]{5,}$")
+            listOfPattern.add("^3[47][0-9]{5,}$")
+            listOfPattern.add("^3(?:0[0-5]|[68][0-9])[0-9]{4,}$")
+            listOfPattern.add("^6(?:011|5[0-9]{2})[0-9]{3,}$")
+            listOfPattern.add("^(?:2131|1800|35[0-9]{3})[0-9]{3,}$")
+        }
+    }
 }

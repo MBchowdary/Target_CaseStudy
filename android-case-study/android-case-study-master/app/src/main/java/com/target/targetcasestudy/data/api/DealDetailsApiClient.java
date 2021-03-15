@@ -17,21 +17,13 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class DealDetailsApiClient {
     private static final String TAG = "DealDetailApiClient";
-    private static DealDetailsApiClient instance;
     private MutableLiveData<DealItem> mProduct;
     private final CompositeDisposable mCompositeDisposable;
     private DealsApi mDealsApi;
 
-    private DealDetailsApiClient() {
+    public DealDetailsApiClient() {
         mCompositeDisposable = new CompositeDisposable();
         mProduct = new MutableLiveData<>();
-    }
-
-    public static DealDetailsApiClient getInstance() {
-        if (instance == null) {
-            instance = new DealDetailsApiClient();
-        }
-        return instance;
     }
 
     // Live data to Repo
@@ -71,7 +63,7 @@ public class DealDetailsApiClient {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.e(TAG, "onError"+e.getMessage());
+                        Log.e(TAG, "onError" + e.getMessage());
                     }
                 });
     }

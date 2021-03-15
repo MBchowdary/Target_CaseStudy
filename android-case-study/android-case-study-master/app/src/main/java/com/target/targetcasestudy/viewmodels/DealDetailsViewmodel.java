@@ -11,7 +11,8 @@ public class DealDetailsViewmodel extends ViewModel {
     private DealDetailsRepo mDealDetailsRepo;
 
     public DealDetailsViewmodel() {
-        mDealDetailsRepo = DealDetailsRepo.getInstance();
+        // create repo instance
+        mDealDetailsRepo = new DealDetailsRepo();
     }
 
     //Return Live data to View
