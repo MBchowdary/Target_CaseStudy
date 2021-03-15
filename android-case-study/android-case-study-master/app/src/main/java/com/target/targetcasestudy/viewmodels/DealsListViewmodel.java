@@ -3,8 +3,8 @@ package com.target.targetcasestudy.viewmodels;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.target.targetcasestudy.repo.DealsRepo;
-import com.target.targetcasestudy.requets.data.DealItem;
+import com.target.targetcasestudy.data.repo.DealsRepo;
+import com.target.targetcasestudy.data.model.DealItem;
 
 import java.util.List;
 

@@ -56,7 +56,6 @@
                 android:layout_below="@+id/dealImage"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="@dimen/inner_view_margins"
-                android:background="@drawable/strike_textview"
                 android:text="@string/empty_char"
                 android:textColor="@color/gray_color"
                 android:textSize="24sp"

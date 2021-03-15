@@ -11,7 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.target.targetcasestudy.R
-import com.target.targetcasestudy.requets.data.DealItem
+import com.target.targetcasestudy.data.model.DealItem
 import com.target.targetcasestudy.viewmodels.DealsListViewmodel
 
 

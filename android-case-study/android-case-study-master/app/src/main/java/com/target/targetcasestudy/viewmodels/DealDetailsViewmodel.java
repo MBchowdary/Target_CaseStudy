@@ -3,8 +3,8 @@ package com.target.targetcasestudy.viewmodels;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.target.targetcasestudy.repo.DealDetailsRepo;
-import com.target.targetcasestudy.requets.data.DealItem;
+import com.target.targetcasestudy.data.repo.DealDetailsRepo;
+import com.target.targetcasestudy.data.model.DealItem;
 
 public class DealDetailsViewmodel extends ViewModel {
 
@@ -16,6 +16,8 @@ public class DealDetailsViewmodel extends ViewModel {
 
     //Return Live data to View
     public LiveData<DealItem> getDealDetails(int pid) {
+        //Perform some action on the Live data
+
         return mDealDetailsRepo.getDealDetails(pid);
     }
 

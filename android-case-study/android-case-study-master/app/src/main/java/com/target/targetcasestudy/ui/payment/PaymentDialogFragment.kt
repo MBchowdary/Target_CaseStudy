@@ -42,9 +42,9 @@ class PaymentDialogFragment : DialogFragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.dialog_payment, container, false)
 
@@ -60,18 +60,24 @@ class PaymentDialogFragment : DialogFragment() {
         creditCardInput.addTextChangedListener(object : TextWatcher {
 
             override fun onTextChanged(cs: CharSequence, arg1: Int, arg2: Int, arg3: Int) {
-                submitButton.isEnabled = validateCreditCard(cs.toString(), listOfPattern)
+                // Empty
             }
 
             override fun beforeTextChanged(arg0: CharSequence, arg1: Int, arg2: Int, arg3: Int) {
                 //Empty
             }
 
-            override fun afterTextChanged(arg0: Editable) {
-                //Empty
+            override fun afterTextChanged(s: Editable) {
+                val userInput = s.toString().replace(nonDigits, "")
+                submitButton.isEnabled = validateCreditCard(userInput, listOfPattern)
+
             }
         })
 
         return root
+    }
+
+    companion object {
+        private val nonDigits = Regex("[^\\d]")
     }
 }

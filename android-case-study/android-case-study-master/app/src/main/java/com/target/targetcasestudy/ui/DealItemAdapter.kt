@@ -9,12 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.target.targetcasestudy.R
-import com.target.targetcasestudy.requets.data.DealItem
+import com.target.targetcasestudy.data.model.DealItem
 
 class DealItemAdapter(
-    var context: Context,
-    var dealList: List<DealItem>,
-    var listener: DealClickListener
+        var context: Context,
+        var dealList: List<DealItem>,
+        var listener: DealClickListener
 ) :
     RecyclerView.Adapter<DealItemViewHolder>() {
 
